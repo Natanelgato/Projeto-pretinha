@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Operação Pretinha</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Operação Pretinha</h1>
+    <p class="boas-vindas">Bem-vinda, neguinha, aqui os seus gestos mais pequenos valem muito, dinheiro e diversão! Marque suas tarefas e bora se divertir.</p>
+    <img src="avatar.png" alt="Avatar da Pretinha" class="avatar" />
+  </header>
+
+  <section class="controls">
+    <button id="valorAcumulado">Valor acumulado: R$0,00</button>
+    <button onclick="resetarSaldo()">Resetar saldo</button>
+    <button onclick="resetarDia()">Resetar dia</button>
+    <button onclick="adicionarTarefa()">Adicionar tarefa</button>
+  </section>
+
+  <main class="task-grid">
+    <!-- Cards gerados dinamicamente -->
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
