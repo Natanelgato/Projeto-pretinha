@@ -44,7 +44,7 @@ function atualizarInterface() {
   });
 
   document.getElementById("valorAcumulado").innerText = `R$ ${saldo.toFixed(2)}`;
-  salvarDados(); // <- salva sempre que atualizar a tela
+  salvarDados(); // Salva sempre que a interface for atualizada
 }
 
 function fazerTarefa(index) {
@@ -97,5 +97,25 @@ function excluirTarefa(index) {
   }
 }
 
-// Inicializa
+function exportarProgresso() {
+  let texto = `💖 Relatório da Pretinha 💖\n\n`;
+  texto += `Valor acumulado: R$ ${saldo.toFixed(2)}\n\n`;
+  texto += `Tarefas realizadas:\n`;
+
+  tarefas.forEach(t => {
+    texto += `- ${t.nome}: ${t.vezes}x (${t.incalculavel ? "Incalculável" : `R$ ${t.valor.toFixed(2)}`})\n`;
+  });
+
+  const blob = new Blob([texto], { type: "text/plain;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "progresso-da-pretinha.txt";
+  a.click();
+
+  URL.revokeObjectURL(url);
+}
+
+// Inicializa a interface ao carregar a página
 window.onload = atualizarInterface;
